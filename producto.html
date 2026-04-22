@@ -1,0 +1,943 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bolso Tote Tejido — OCRE Handmade</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+    <style>
+
+        /* ─────────────────────────────────────────
+           VARIABLES Y RESET
+        ───────────────────────────────────────── */
+        :root {
+            --crema:        #EDE0CC;
+            --crema-light:  #FAF6EF;
+            --oliva:        #3D3828;
+            --ocre:         #B87A2E;
+            --marron:       #7A5C3A;
+            --marron-light: #A08060;
+        }
+
+        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+        body {
+            background-color: var(--crema-light);
+            color: var(--oliva);
+            font-family: 'DM Sans', sans-serif;
+            font-weight: 300;
+            -webkit-font-smoothing: antialiased;
+        }
+        img { display: block; max-width: 100%; }
+        a   { text-decoration: none; }
+        ul  { list-style: none; }
+
+
+        /* ─────────────────────────────────────────
+           HEADER (banner + nav fijos)
+        ───────────────────────────────────────── */
+        .site-header {
+            position: fixed;
+            top: 0; left: 0; right: 0;
+            z-index: 100;
+        }
+
+        .top-banner {
+            background: #3D3828;
+            color: var(--crema);
+            text-align: center;
+            padding: 0.55rem 3.5rem;
+            font-family: 'DM Sans', sans-serif;
+            font-size: 0.65rem;
+            font-weight: 600;
+            letter-spacing: 0.18em;
+            text-transform: uppercase;
+            position: relative;
+            z-index: 1;
+        }
+
+        .top-banner .sep { margin: 0 1.4rem; opacity: 0.35; }
+
+        nav {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 1.4rem 3.5rem;
+            background: rgba(250, 246, 239, 0.93);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(61, 56, 40, 0.07);
+        }
+
+        .nav-logo {
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            line-height: 1;
+            color: var(--oliva);
+        }
+
+        .nav-logo .logo-main {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.45rem;
+            letter-spacing: 0.4em;
+            padding-left: 0.4em;
+            font-weight: 400;
+        }
+
+        .nav-logo .logo-sub {
+            font-size: 0.65rem;
+            letter-spacing: 0.45em;
+            text-transform: uppercase;
+            color: var(--marron-light);
+            margin-top: 1px;
+        }
+
+        .nav-links { display: flex; gap: 2.5rem; }
+
+        .nav-links a {
+            font-size: 0.85rem;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            color: var(--oliva);
+            font-weight: 400;
+            transition: color 0.25s;
+        }
+
+        .nav-links a:hover { color: var(--ocre); }
+
+        .nav-right { display: flex; align-items: center; gap: 1.5rem; }
+
+        .nav-search {
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            color: var(--oliva);
+            transition: color 0.25s;
+        }
+
+        .nav-search:hover { color: var(--ocre); }
+
+        .nav-search svg, .nav-cart svg {
+            width: 20px; height: 20px;
+            stroke: currentColor;
+            fill: none;
+            stroke-width: 1.8;
+            stroke-linecap: round;
+            stroke-linejoin: round;
+        }
+
+        .nav-cart {
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            color: var(--oliva);
+            transition: color 0.25s;
+        }
+
+        .nav-cart:hover { color: var(--ocre); }
+
+
+        /* ─────────────────────────────────────────
+           MAIN
+        ───────────────────────────────────────── */
+        main {
+            padding-top: 8rem;
+        }
+
+
+        /* ─────────────────────────────────────────
+           BREADCRUMB
+        ───────────────────────────────────────── */
+        .breadcrumb {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 1.8rem 3.5rem 0;
+            font-size: 0.7rem;
+            letter-spacing: 0.18em;
+            text-transform: uppercase;
+            color: var(--marron-light);
+            display: flex;
+            align-items: center;
+            gap: 0.6rem;
+        }
+
+        .breadcrumb a {
+            color: var(--marron-light);
+            transition: color 0.2s;
+        }
+
+        .breadcrumb a:hover { color: var(--ocre); }
+
+        .breadcrumb .sep { opacity: 0.4; }
+
+
+        /* ─────────────────────────────────────────
+           LAYOUT PRODUCTO — 2 COLUMNAS
+        ───────────────────────────────────────── */
+        .product-layout {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 5rem;
+            padding: 2.5rem 3.5rem 6rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+
+        /* ─────────────────────────────────────────
+           GALERÍA DE IMÁGENES
+        ───────────────────────────────────────── */
+        .product-gallery {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .gallery-main {
+            overflow: hidden;
+            background: var(--crema);
+        }
+
+        .gallery-main img {
+            width: 100%;
+            aspect-ratio: 3 / 4;
+            object-fit: cover;
+            object-position: center;
+            transition: transform 0.6s ease;
+        }
+
+        .gallery-main:hover img { transform: scale(1.03); }
+
+        .gallery-thumbs {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1rem;
+        }
+
+        .gallery-thumb {
+            overflow: hidden;
+            background: var(--crema);
+            cursor: pointer;
+            opacity: 0.7;
+            transition: opacity 0.2s;
+        }
+
+        .gallery-thumb.active { opacity: 1; outline: 1.5px solid var(--oliva); }
+        .gallery-thumb:hover { opacity: 1; }
+
+        .gallery-thumb img {
+            width: 100%;
+            aspect-ratio: 1;
+            object-fit: cover;
+        }
+
+
+        /* ─────────────────────────────────────────
+           INFO DEL PRODUCTO
+        ───────────────────────────────────────── */
+        .product-info {
+            display: flex;
+            flex-direction: column;
+            padding-top: 1rem;
+        }
+
+        .product-name {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: clamp(2rem, 3vw, 2.8rem);
+            font-weight: 400;
+            color: var(--oliva);
+            line-height: 1.2;
+            margin-bottom: 1rem;
+        }
+
+        .product-price {
+            font-size: 1.1rem;
+            color: var(--marron);
+            letter-spacing: 0.05em;
+            margin-bottom: 2rem;
+        }
+
+        .product-divider {
+            height: 1px;
+            background: rgba(61, 56, 40, 0.1);
+            margin-bottom: 2rem;
+        }
+
+        /* Selector de color */
+        .product-option-label {
+            font-size: 0.72rem;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            color: var(--marron-light);
+            margin-bottom: 0.8rem;
+        }
+
+        .color-swatches {
+            display: flex;
+            gap: 0.6rem;
+            margin-bottom: 2rem;
+        }
+
+        .swatch {
+            width: 1.8rem;
+            height: 1.8rem;
+            border-radius: 50%;
+            cursor: pointer;
+            transition: outline-offset 0.15s;
+        }
+
+        .swatch.active { outline: 1.5px solid var(--oliva); outline-offset: 3px; }
+        .swatch:hover  { outline: 1px solid var(--marron-light); outline-offset: 3px; }
+
+        /* Selector de cantidad */
+        .qty-row {
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .qty-control {
+            display: flex;
+            align-items: center;
+            border: 1px solid rgba(61, 56, 40, 0.25);
+        }
+
+        .qty-btn {
+            width: 2.4rem;
+            height: 2.4rem;
+            background: none;
+            border: none;
+            cursor: pointer;
+            font-size: 1.1rem;
+            color: var(--oliva);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: background 0.2s;
+        }
+
+        .qty-btn:hover { background: var(--crema); }
+
+        .qty-value {
+            width: 2.4rem;
+            height: 2.4rem;
+            text-align: center;
+            font-size: 0.85rem;
+            border: none;
+            border-left: 1px solid rgba(61, 56, 40, 0.15);
+            border-right: 1px solid rgba(61, 56, 40, 0.15);
+            background: none;
+            color: var(--oliva);
+            font-family: 'DM Sans', sans-serif;
+        }
+
+        /* Botones de acción */
+        .btn-add {
+            display: block;
+            width: 100%;
+            padding: 1.1rem;
+            background: var(--oliva);
+            color: var(--crema-light);
+            font-family: 'DM Sans', sans-serif;
+            font-size: 0.78rem;
+            letter-spacing: 0.25em;
+            text-transform: uppercase;
+            font-weight: 400;
+            border: none;
+            cursor: pointer;
+            transition: background 0.25s;
+            margin-bottom: 0.8rem;
+        }
+
+        .btn-add:hover { background: var(--marron); }
+
+        .btn-buy {
+            display: block;
+            width: 100%;
+            padding: 1.1rem;
+            background: none;
+            color: var(--oliva);
+            font-family: 'DM Sans', sans-serif;
+            font-size: 0.78rem;
+            letter-spacing: 0.25em;
+            text-transform: uppercase;
+            font-weight: 400;
+            border: 1px solid rgba(61, 56, 40, 0.35);
+            cursor: pointer;
+            transition: all 0.25s;
+            margin-bottom: 2rem;
+        }
+
+        .btn-buy:hover {
+            border-color: var(--oliva);
+            background: var(--crema);
+        }
+
+        /* Nota de envío */
+        .shipping-note {
+            display: flex;
+            align-items: center;
+            gap: 0.6rem;
+            font-size: 0.75rem;
+            letter-spacing: 0.1em;
+            color: var(--marron-light);
+            margin-bottom: 2rem;
+        }
+
+        .shipping-note svg {
+            width: 15px; height: 15px;
+            stroke: currentColor;
+            fill: none;
+            stroke-width: 1.8;
+            stroke-linecap: round;
+            stroke-linejoin: round;
+            flex-shrink: 0;
+        }
+
+        /* Acordeón de detalles */
+        .accordion {
+            border-top: 1px solid rgba(61, 56, 40, 0.12);
+        }
+
+        details {
+            border-bottom: 1px solid rgba(61, 56, 40, 0.12);
+        }
+
+        details summary {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1.1rem 0;
+            cursor: pointer;
+            list-style: none;
+            font-size: 0.75rem;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            color: var(--oliva);
+            font-weight: 400;
+        }
+
+        details summary::-webkit-details-marker { display: none; }
+
+        details summary .acc-icon {
+            font-size: 1.2rem;
+            font-weight: 300;
+            color: var(--marron-light);
+            transition: transform 0.25s;
+        }
+
+        details[open] summary .acc-icon { transform: rotate(45deg); }
+
+        details p, details ul {
+            font-size: 0.85rem;
+            line-height: 1.85;
+            color: var(--marron);
+            padding-bottom: 1.2rem;
+        }
+
+        details ul { padding-left: 1rem; }
+        details ul li { list-style: disc; margin-bottom: 0.3rem; }
+
+
+        /* ─────────────────────────────────────────
+           PRODUCTOS RELACIONADOS
+        ───────────────────────────────────────── */
+        .related {
+            background: var(--crema);
+            padding: 5rem 3.5rem;
+        }
+
+        .related-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .related-header h2 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: clamp(1.6rem, 2.5vw, 2.2rem);
+            font-weight: 400;
+            color: var(--oliva);
+        }
+
+        .related-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 2rem 1.8rem;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        .related-card { cursor: pointer; }
+
+        .related-img-wrap {
+            overflow: hidden;
+            background: var(--crema-light);
+            margin-bottom: 1rem;
+        }
+
+        .related-img-wrap img {
+            width: 100%;
+            aspect-ratio: 3 / 4;
+            object-fit: cover;
+            transition: transform 0.55s ease;
+        }
+
+        .related-card:hover .related-img-wrap img { transform: scale(1.04); }
+
+        .related-name {
+            font-family: 'DM Sans', sans-serif;
+            font-size: 0.82rem;
+            letter-spacing: 0.08em;
+            color: var(--oliva);
+            margin-bottom: 0.2rem;
+        }
+
+        .related-price {
+            font-size: 0.78rem;
+            color: var(--marron-light);
+        }
+
+
+        /* ─────────────────────────────────────────
+           FOOTER
+        ───────────────────────────────────────── */
+        footer {
+            background: var(--oliva);
+            color: var(--crema);
+            padding: 4rem 3.5rem 2rem;
+        }
+
+        .footer-top {
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+            margin-bottom: 3rem;
+        }
+
+        .footer-social-link {
+            font-size: 0.85rem;
+            letter-spacing: 0.1em;
+            color: rgba(237,224,204,0.8);
+            transition: color 0.25s;
+        }
+
+        .footer-social-link:hover { color: var(--ocre); }
+
+        .footer-bottom {
+            border-top: 1px solid rgba(237,224,204,0.12);
+            padding-top: 1.8rem;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .footer-bottom p {
+            font-size: 0.78rem;
+            letter-spacing: 0.08em;
+            color: rgba(237,224,204,0.35);
+        }
+
+        /* ── Hamburger (oculto en desktop) ── */
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            justify-content: center;
+            gap: 5px;
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 4px;
+        }
+        .hamburger span {
+            display: block;
+            width: 20px;
+            height: 1.5px;
+            background: var(--oliva);
+            transition: transform 0.3s, opacity 0.3s;
+        }
+        .hamburger.open span:nth-child(1) { transform: translateY(6.5px) rotate(45deg); }
+        .hamburger.open span:nth-child(2) { opacity: 0; }
+        .hamburger.open span:nth-child(3) { transform: translateY(-6.5px) rotate(-45deg); }
+
+        /* ── Menú mobile ── */
+        .mobile-menu {
+            display: none;
+            background: var(--oliva);
+            border-top: 1px solid rgba(237,224,204,0.1);
+        }
+        .mobile-menu.open { display: block; }
+        .mobile-menu ul {
+            list-style: none;
+            padding: 1.5rem 1.8rem;
+            display: flex;
+            flex-direction: column;
+            gap: 1.2rem;
+        }
+        .mobile-menu a {
+            font-family: 'DM Sans', sans-serif;
+            font-size: 0.65rem;
+            letter-spacing: 0.28em;
+            text-transform: uppercase;
+            color: var(--crema);
+            text-decoration: none;
+            opacity: 0.85;
+        }
+        .mobile-menu a:hover { opacity: 1; }
+
+        /* ══════════════════════════════════════
+           RESPONSIVE — móvil ≤ 768px
+        ══════════════════════════════════════ */
+        @media (max-width: 768px) {
+
+            /* ── Banner ── */
+            .top-banner {
+                font-size: 0.55rem;
+                padding: 0.45rem 1rem;
+                letter-spacing: 0.14em;
+            }
+            .banner-extra { display: none; }
+
+            /* ── Nav ── */
+            nav {
+                padding: 0.8rem 1.2rem;
+            }
+            .nav-links { display: none; }
+            .nav-logo { font-size: 1rem; letter-spacing: 0.45em; }
+            .hamburger { display: flex; }
+
+            /* ── Breadcrumb ── */
+            .breadcrumb {
+                padding: 1rem 1.2rem 0;
+                font-size: 0.58rem;
+                gap: 0.35rem;
+                flex-wrap: wrap;
+            }
+
+            /* ── Producto layout: 1 columna ── */
+            .product-layout {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+                padding: 1.5rem 1.2rem 4rem;
+            }
+
+            /* ── Galería ── */
+            .gallery-thumbs {
+                grid-template-columns: repeat(3, 1fr);
+                gap: 0.5rem;
+            }
+
+            /* ── Info del producto ── */
+            .product-info .product-name {
+                font-size: clamp(2rem, 10vw, 3rem);
+            }
+            .btn-add, .btn-buy {
+                width: 100%;
+                text-align: center;
+                padding: 0.9rem 1.2rem;
+                font-size: 0.58rem;
+            }
+
+            /* ── Relacionados ── */
+            .related { padding: 3rem 1.2rem; }
+            .related-grid {
+                grid-template-columns: 1fr 1fr;
+                gap: 1rem;
+            }
+            .related-card:nth-child(n+3) { display: none; }
+
+            /* ── Footer ── */
+            footer { padding: 0; }
+            .footer-top {
+                padding: 1.8rem 1.5rem;
+                margin-bottom: 0;
+                align-items: center;
+                justify-content: center;
+            }
+            .footer-bottom {
+                text-align: center;
+                padding: 0.8rem 1.5rem;
+            }
+        }
+
+    </style>
+</head>
+<body>
+
+    <!-- ═══════════════════════════════════════
+         HEADER
+    ═══════════════════════════════════════ -->
+    <header class="site-header">
+
+        <div class="top-banner">
+            Envíos a todo Uruguay
+            <span class="banner-extra"><span class="sep">·</span> Envíos gratuitos en compras superiores a $X UYU</span>
+        </div>
+
+        <nav>
+            <button class="hamburger" id="hamburger" aria-label="Abrir menú">
+                <span></span><span></span><span></span>
+            </button>
+
+            <ul class="nav-links">
+                <li><a href="shop.html">Shop</a></li>
+                <li><a href="#">FAQs</a></li>
+                <li><a href="#">Sobre Ocre</a></li>
+                <li><a href="#">Contacto</a></li>
+            </ul>
+
+            <a href="index.html" class="nav-logo">
+                <span class="logo-main">OCRE</span>
+                <span class="logo-sub">handmade</span>
+            </a>
+
+            <div class="nav-right">
+                <div class="nav-search">
+                    <svg viewBox="0 0 24 24">
+                        <circle cx="11" cy="11" r="7"/>
+                        <line x1="16.5" y1="16.5" x2="22" y2="22"/>
+                    </svg>
+                </div>
+                <div class="nav-cart">
+                    <svg viewBox="0 0 24 24"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 01-8 0"/></svg>
+                </div>
+            </div>
+        </nav>
+
+        <div class="mobile-menu" id="mobile-menu">
+            <ul>
+                <li><a href="shop.html">Shop</a></li>
+                <li><a href="#">FAQs</a></li>
+                <li><a href="#">Sobre Ocre</a></li>
+                <li><a href="#">Contacto</a></li>
+            </ul>
+        </div>
+
+    </header>
+
+
+    <main>
+
+
+
+        <!-- Breadcrumb -->
+        <div class="breadcrumb">
+            <a href="index.html">Inicio</a>
+            <span class="sep">/</span>
+            <a href="shop.html">Shop</a>
+            <span class="sep">/</span>
+            <a href="shop.html">Bolsos</a>
+            <span class="sep">/</span>
+            <span>Bolso Tote Tejido</span>
+        </div>
+
+
+        <!-- ═══════════════════════════════════════
+             LAYOUT PRODUCTO
+        ═══════════════════════════════════════ -->
+        <div class="product-layout">
+
+            <!-- GALERÍA -->
+            <div class="product-gallery">
+                <div class="gallery-main">
+                    <img src="img/bolso-piso.png" alt="Bolso Tote Tejido — OCRE Handmade" id="main-img"/>
+                </div>
+                <div class="gallery-thumbs">
+                    <div class="gallery-thumb active" onclick="switchImg('img/bolso-piso.png', this)">
+                        <img src="img/bolso-piso.png" alt="Vista 1"/>
+                    </div>
+                    <div class="gallery-thumb" onclick="switchImg('img/bolso-sofa.png', this)">
+                        <img src="img/bolso-sofa.png" alt="Vista 2"/>
+                    </div>
+                    <div class="gallery-thumb" onclick="switchImg('img/cinturon-rojo.png', this)">
+                        <img src="img/cinturon-rojo.png" alt="Vista 3"/>
+                    </div>
+                </div>
+            </div>
+
+
+            <!-- INFO -->
+            <div class="product-info">
+
+                <h1 class="product-name">Bolso Tote Tejido</h1>
+
+                <p class="product-price">$4.200 UYU</p>
+
+                <div class="product-divider"></div>
+
+                <!-- Color -->
+                <p class="product-option-label">Color — <span style="color:var(--oliva); font-weight:400;">Natural</span></p>
+                <div class="color-swatches">
+                    <div class="swatch active" style="background:#C8A87A;" title="Natural"></div>
+                    <div class="swatch" style="background:#3D3828;" title="Negro"></div>
+                    <div class="swatch" style="background:#7A5C3A;" title="Marrón"></div>
+                </div>
+
+                <!-- Cantidad -->
+                <p class="product-option-label">Cantidad</p>
+                <div class="qty-row">
+                    <div class="qty-control">
+                        <button class="qty-btn" onclick="changeQty(-1)">−</button>
+                        <input class="qty-value" type="text" value="1" id="qty" readonly/>
+                        <button class="qty-btn" onclick="changeQty(1)">+</button>
+                    </div>
+                </div>
+
+                <!-- Botones -->
+                <button class="btn-add">Agregar al carrito</button>
+                <button class="btn-buy">Comprar ahora</button>
+
+                <!-- Nota de envío -->
+                <p class="shipping-note">
+                    <svg viewBox="0 0 24 24"><rect x="1" y="3" width="15" height="13"/><path d="M16 8h4l3 5v3h-7V8z"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg>
+                    Envío gratis en compras superiores a $X UYU · Entrega en 3–5 días hábiles
+                </p>
+
+                <!-- Acordeón -->
+                <div class="accordion">
+
+                    <details open>
+                        <summary>
+                            Descripción
+                            <span class="acc-icon">+</span>
+                        </summary>
+                        <p>
+                            Bolso tote artesanal elaborado en cuero vacuno nacional, con tejido lateral
+                            que aporta textura y carácter. Cada pieza es única — las variaciones
+                            en el cuero son parte de su naturaleza y no defectos.
+                            Interior sin forro para mantener el peso liviano. Asas reforzadas.
+                        </p>
+                    </details>
+
+                    <details>
+                        <summary>
+                            Materiales
+                            <span class="acc-icon">+</span>
+                        </summary>
+                        <ul>
+                            <li>Cuero vacuno nacional curtido al vegetal</li>
+                            <li>Costuras en hilo encerado resistente</li>
+                            <li>Herrajes en acero inoxidable</li>
+                            <li>Sin forro interior</li>
+                        </ul>
+                    </details>
+
+                    <details>
+                        <summary>
+                            Medidas
+                            <span class="acc-icon">+</span>
+                        </summary>
+                        <ul>
+                            <li>Alto: 35 cm</li>
+                            <li>Ancho: 32 cm</li>
+                            <li>Profundidad: 12 cm</li>
+                            <li>Largo de asas: 55 cm</li>
+                        </ul>
+                    </details>
+
+                    <details>
+                        <summary>
+                            Envíos y devoluciones
+                            <span class="acc-icon">+</span>
+                        </summary>
+                        <p>
+                            Envíos a todo Uruguay. Entrega estimada 3–5 días hábiles.
+                            Envío gratis en compras superiores a $X UYU.
+                            Por tratarse de productos artesanales no se aceptan devoluciones,
+                            pero sí cambios dentro de los 7 días de recibido el pedido.
+                        </p>
+                    </details>
+
+                </div>
+
+            </div>
+        </div>
+
+    </main>
+
+
+    <!-- ═══════════════════════════════════════
+         PRODUCTOS RELACIONADOS
+    ═══════════════════════════════════════ -->
+    <section class="related">
+        <div class="related-header">
+            <h2>También te puede interesar</h2>
+        </div>
+        <div class="related-grid">
+            <a href="#" class="related-card">
+                <div class="related-img-wrap">
+                    <img src="img/cinturon-modelo.png" alt="Cinturón Silver"/>
+                </div>
+                <p class="related-name">Cinturón Silver</p>
+                <p class="related-price">$2.100 UYU</p>
+            </a>
+            <a href="#" class="related-card">
+                <div class="related-img-wrap">
+                    <img src="img/cinturones-flat.png" alt="Cinturones Artesanales"/>
+                </div>
+                <p class="related-name">Cinturones Artesanales</p>
+                <p class="related-price">$2.500 UYU</p>
+            </a>
+            <a href="#" class="related-card">
+                <div class="related-img-wrap">
+                    <img src="img/bolso-sofa.png" alt="Bolso Cuero Natural"/>
+                </div>
+                <p class="related-name">Bolso Cuero Natural</p>
+                <p class="related-price">$5.800 UYU</p>
+            </a>
+            <a href="#" class="related-card">
+                <div class="related-img-wrap">
+                    <img src="img/cinturon-rojo.png" alt="Cinturón Rojo"/>
+                </div>
+                <p class="related-name">Cinturón Rojo</p>
+                <p class="related-price">$2.100 UYU</p>
+            </a>
+        </div>
+    </section>
+
+
+    <!-- ═══════════════════════════════════════
+         FOOTER
+    ═══════════════════════════════════════ -->
+    <footer>
+        <div class="footer-top">
+            <a href="https://www.instagram.com/ocre_handmade/" target="_blank" class="footer-social-link">Seguinos @ocre_handmade</a>
+        </div>
+        <div class="footer-bottom">
+            <p>© 2025 Ocre Handmade. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+
+    <script>
+        // Cambio de imagen principal al clickear thumbnail
+        function switchImg(src, el) {
+            document.getElementById('main-img').src = src;
+            document.querySelectorAll('.gallery-thumb').forEach(t => t.classList.remove('active'));
+            el.classList.add('active');
+        }
+
+        // Control de cantidad
+        function changeQty(delta) {
+            const input = document.getElementById('qty');
+            const val = Math.max(1, parseInt(input.value) + delta);
+            input.value = val;
+        }
+    </script>
+
+
+    <script>
+        var btn = document.getElementById('hamburger');
+        var menu = document.getElementById('mobile-menu');
+        btn.addEventListener('click', function () {
+            btn.classList.toggle('open');
+            menu.classList.toggle('open');
+        });
+    </script>
+
+</body>
+</html>

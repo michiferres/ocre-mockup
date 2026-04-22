@@ -1,0 +1,1000 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OCRE Handmade</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+    <style>
+
+        /* ─────────────────────────────────────────
+           VARIABLES Y RESET
+        ───────────────────────────────────────── */
+        :root {
+            --crema:        #EDE0CC;
+            --crema-light:  #FAF6EF;
+            --oliva:        #3D3828;
+            --ocre:         #B87A2E;
+            --marron:       #7A5C3A;
+            --marron-light: #A08060;
+        }
+
+        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+        body {
+            background-color: var(--crema-light);
+            color: var(--oliva);
+            font-family: 'DM Sans', sans-serif;
+            font-weight: 300;
+            -webkit-font-smoothing: antialiased;
+        }
+        img { display: block; max-width: 100%; }
+        a   { text-decoration: none; }
+        ul  { list-style: none; }
+
+
+        /* ─────────────────────────────────────────
+           HEADER (banner + nav fijos juntos)
+        ───────────────────────────────────────── */
+        .site-header {
+            position: fixed;
+            top: 0; left: 0; right: 0;
+            z-index: 100;
+        }
+
+        .top-banner {
+            background: #3D3828;
+            color: var(--crema);
+            text-align: center;
+            padding: 0.55rem 3.5rem;
+            font-family: 'DM Sans', sans-serif;
+            font-size: 0.65rem;
+            font-weight: 600;
+            letter-spacing: 0.18em;
+            text-transform: uppercase;
+            position: relative;
+            z-index: 1;
+        }
+
+        .top-banner .sep {
+            margin: 0 1.4rem;
+            opacity: 0.35;
+        }
+
+        /* ─────────────────────────────────────────
+           NAVEGACIÓN
+        ───────────────────────────────────────── */
+        nav {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 1.4rem 3.5rem;
+            background: rgba(250, 246, 239, 0.93);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(61, 56, 40, 0.07);
+        }
+
+        /* Logo centrado con position absolute */
+        .nav-logo {
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            line-height: 1;
+            color: var(--oliva);
+        }
+
+        .nav-logo .logo-main {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.45rem;
+            letter-spacing: 0.4em;
+            padding-left: 0.4em;
+            font-weight: 400;
+        }
+
+        .nav-logo .logo-sub {
+            font-size: 0.65rem;
+            letter-spacing: 0.45em;
+            text-transform: uppercase;
+            color: var(--marron-light);
+            margin-top: 1px;
+        }
+
+        /* Links izquierda */
+        .nav-links {
+            display: flex;
+            gap: 2.5rem;
+        }
+
+        .nav-links a {
+            font-size: 0.85rem;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            color: var(--oliva);
+            font-weight: 400;
+            transition: color 0.25s;
+        }
+
+        .nav-links a:hover { color: var(--ocre); }
+
+        /* Derecha: lupa + carrito */
+        .nav-right {
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+        }
+
+        .nav-search {
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            color: var(--oliva);
+            transition: color 0.25s;
+        }
+
+        .nav-search:hover { color: var(--ocre); }
+
+        .nav-search svg {
+            width: 18px;
+            height: 18px;
+            stroke: currentColor;
+            fill: none;
+            stroke-width: 1.8;
+            stroke-linecap: round;
+        }
+
+        .nav-cart {
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            color: var(--oliva);
+            transition: color 0.25s;
+        }
+
+        .nav-cart:hover { color: var(--ocre); }
+
+        .nav-cart svg {
+            width: 20px;
+            height: 20px;
+            stroke: currentColor;
+            fill: none;
+            stroke-width: 1.8;
+            stroke-linecap: round;
+            stroke-linejoin: round;
+        }
+
+
+        /* ─────────────────────────────────────────
+           HERO
+        ───────────────────────────────────────── */
+        .hero {
+            height: 85vh;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center;
+        }
+
+        .hero-overlay {
+            position: absolute;
+            inset: 0;
+            background: rgba(61, 56, 40, 0.45);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding-top: 7rem;
+        }
+
+        .hero-text { text-align: center; color: var(--crema-light); }
+
+        .hero-text h1 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: clamp(4rem, 9vw, 8rem);
+            letter-spacing: 0.45em;
+            padding-left: 0.45em;
+            font-weight: 400;
+            line-height: 1;
+        }
+
+        .hero-text .hero-sub {
+            font-family: 'DM Sans', sans-serif;
+            font-size: 1rem;
+            font-weight: 300;
+            text-transform: uppercase;
+            letter-spacing: 0.35em;
+            padding-left: 0.35em;
+            opacity: 0.88;
+            margin-top: 0.8rem;
+            margin-bottom: 2.5rem;
+        }
+
+        .btn-hero {
+            display: inline-block;
+            padding: 0.9rem 2.8rem;
+            border: 1px solid rgba(250, 246, 239, 0.75);
+            color: var(--crema-light);
+            font-size: 0.82rem;
+            letter-spacing: 0.22em;
+            text-transform: uppercase;
+            font-weight: 400;
+            transition: all 0.3s;
+        }
+
+        .btn-hero:hover {
+            background: var(--crema-light);
+            color: var(--oliva);
+            border-color: var(--crema-light);
+        }
+
+
+        /* ─────────────────────────────────────────
+           PRODUCTOS DESTACADOS
+        ───────────────────────────────────────── */
+        .featured {
+            padding: 7rem 3.5rem;
+            background: var(--crema-light);
+        }
+
+        .section-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+            max-width: 1100px;
+            margin: 0 auto 4rem;
+        }
+
+        .section-header-text { text-align: left; }
+
+        .carousel-arrows {
+            display: flex;
+            gap: 0.6rem;
+            padding-bottom: 0.2rem;
+        }
+
+        .arrow-btn {
+            width: 2.5rem;
+            height: 2.5rem;
+            border: 1px solid var(--oliva);
+            background: none;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--oliva);
+            transition: background 0.25s, color 0.25s;
+        }
+
+        .arrow-btn:hover {
+            background: var(--oliva);
+            color: var(--crema-light);
+        }
+
+        .arrow-btn svg {
+            width: 1rem;
+            height: 1rem;
+        }
+
+        .section-tag {
+            display: block;
+            font-size: 0.78rem;
+            letter-spacing: 0.3em;
+            text-transform: uppercase;
+            color: var(--ocre);
+            margin-bottom: 0.8rem;
+        }
+
+        .section-title {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: clamp(2rem, 3vw, 2.8rem);
+            font-weight: 500;
+            color: var(--oliva);
+        }
+
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2.5rem;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        .product-card { cursor: pointer; }
+
+        .product-img-wrap {
+            position: relative;
+            overflow: hidden;
+            margin-bottom: 1.3rem;
+            background: var(--crema);
+        }
+
+        .badge-preventa {
+            position: absolute;
+            top: 1rem;
+            left: 1rem;
+            z-index: 2;
+            background: var(--crema-light);
+            border: 1.5px solid var(--oliva);
+            border-radius: 50%;
+            width: 4.8rem;
+            height: 3.8rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            transform: rotate(-8deg);
+            font-family: 'Cormorant Garamond', serif;
+            font-style: italic;
+            font-size: 1rem;
+            font-weight: 500;
+            color: var(--oliva);
+            line-height: 1.2;
+            pointer-events: none;
+        }
+
+        .product-img-wrap img {
+            width: 100%;
+            aspect-ratio: 3 / 4;
+            object-fit: cover;
+            transition: transform 0.55s ease;
+        }
+
+        .product-card:hover .product-img-wrap img { transform: scale(1.04); }
+
+        .product-info { text-align: center; }
+
+        .product-name {
+            font-family: 'DM Sans', sans-serif;
+            font-size: 0.82rem;
+            font-weight: 400;
+            letter-spacing: 0.08em;
+            color: var(--oliva);
+            margin-bottom: 0.3rem;
+        }
+
+        .product-price {
+            font-size: 0.78rem;
+            color: var(--marron-light);
+            letter-spacing: 0.05em;
+            margin-bottom: 0.8rem;
+        }
+
+        .product-cta {
+            font-size: 0.78rem;
+            letter-spacing: 0.18em;
+            text-transform: uppercase;
+            color: var(--ocre);
+            border-bottom: 1px solid transparent;
+            padding-bottom: 1px;
+            transition: border-color 0.25s;
+        }
+
+        .product-card:hover .product-cta { border-bottom-color: var(--ocre); }
+
+        .view-all { text-align: center; margin-top: 4.5rem; }
+
+        .btn-outline {
+            display: inline-block;
+            padding: 0.9rem 2.8rem;
+            border: 1px solid var(--oliva);
+            color: var(--oliva);
+            font-size: 0.82rem;
+            letter-spacing: 0.22em;
+            text-transform: uppercase;
+            font-weight: 400;
+            transition: all 0.3s;
+        }
+
+        .btn-outline:hover { background: var(--oliva); color: var(--crema-light); }
+
+
+        /* ─────────────────────────────────────────
+           SOBRE OCRE — SNIPPET
+        ───────────────────────────────────────── */
+        /* ─────────────────────────────────────────
+           NUESTRA HISTORIA
+        ───────────────────────────────────────── */
+        .historia {
+            position: relative;
+            height: 620px;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+        }
+
+        .historia-bg {
+            position: absolute;
+            inset: 0;
+        }
+
+        .historia-bg img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center;
+        }
+
+        .historia-overlay {
+            position: absolute;
+            inset: 0;
+            background: rgba(61, 56, 40, 0.42);
+        }
+
+        .historia-content {
+            position: relative;
+            z-index: 1;
+            padding: 6rem 5.5rem;
+            max-width: 580px;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-end;
+            text-align: right;
+        }
+
+        .historia-content .section-tag {
+            text-align: right;
+            color: var(--crema-light);
+            font-family: 'Cormorant Garamond', serif;
+            font-size: clamp(1.8rem, 2.5vw, 2.6rem);
+            font-weight: 500;
+            letter-spacing: 0.05em;
+            text-transform: none;
+            line-height: 1.35;
+            margin-bottom: 1.5rem;
+        }
+
+        .historia-content .btn-outline-light {
+            align-self: flex-end;
+        }
+
+        .historia-content h2 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: clamp(1.8rem, 2.5vw, 2.6rem);
+            font-weight: 500;
+            color: var(--crema-light);
+            line-height: 1.35;
+            margin-bottom: 1.5rem;
+        }
+
+        .historia-content h2 em { font-style: italic; color: var(--crema); }
+
+        .historia-content p {
+            font-size: 1.05rem;
+            line-height: 1.85;
+            color: var(--crema);
+            opacity: 0.88;
+            margin-bottom: 1.5rem;
+        }
+
+
+        /* ─────────────────────────────────────────
+           CUERO NACIONAL / MATERIA PRIMA
+        ───────────────────────────────────────── */
+        .materia {
+            position: relative;
+            height: 620px;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+        }
+
+        .materia-bg {
+            position: absolute;
+            inset: 0;
+        }
+
+        .materia-bg img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center;
+        }
+
+        .materia-overlay {
+            position: absolute;
+            inset: 0;
+            background: rgba(61, 56, 40, 0.42);
+        }
+
+        .materia-content {
+            position: relative;
+            z-index: 1;
+            padding: 6rem 5.5rem;
+            max-width: 580px;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .materia-content .section-tag {
+            text-align: left;
+            color: var(--ocre);
+        }
+
+        .materia-content h2 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: clamp(1.8rem, 2.5vw, 2.6rem);
+            font-weight: 500;
+            color: var(--crema-light);
+            line-height: 1.35;
+            margin-bottom: 1.5rem;
+        }
+
+        .materia-content p {
+            font-size: 1.05rem;
+            line-height: 1.85;
+            color: rgba(250, 246, 239, 0.82);
+            margin-bottom: 1.5rem;
+            max-width: 44ch;
+        }
+
+        .btn-outline-light {
+            display: inline-block;
+            padding: 0.9rem 2.8rem;
+            border: 1px solid rgba(250, 246, 239, 0.6);
+            color: var(--crema-light);
+            font-size: 0.82rem;
+            letter-spacing: 0.22em;
+            text-transform: uppercase;
+            font-weight: 400;
+            transition: all 0.3s;
+            align-self: flex-start;
+            margin-top: 0.8rem;
+        }
+
+        .btn-outline-light:hover {
+            background: var(--crema-light);
+            color: var(--oliva);
+        }
+
+
+        /* ─────────────────────────────────────────
+           INSTAGRAM / FOLLOW US
+        ───────────────────────────────────────── */
+        .instagram-header {
+            background: var(--oliva);
+            padding: 1.3rem 3.5rem;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .instagram-header span {
+            font-family: 'DM Sans', sans-serif;
+            font-size: 0.82rem;
+            letter-spacing: 0.28em;
+            text-transform: uppercase;
+            color: var(--crema);
+            font-weight: 300;
+        }
+
+        .instagram-header a {
+            font-family: 'DM Sans', sans-serif;
+            font-size: 0.82rem;
+            letter-spacing: 0.15em;
+            color: var(--ocre);
+            font-weight: 400;
+            transition: opacity 0.25s;
+        }
+
+        .instagram-header a:hover { opacity: 0.75; }
+
+        .instagram-grid {
+            display: grid;
+            grid-template-columns: repeat(6, 1fr);
+        }
+
+        .instagram-grid a {
+            display: block;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .instagram-grid img {
+            width: 100%;
+            aspect-ratio: 1;
+            object-fit: cover;
+            display: block;
+            transition: transform 0.5s ease, opacity 0.3s;
+        }
+
+        .instagram-grid a:hover img {
+            transform: scale(1.05);
+            opacity: 0.88;
+        }
+
+
+        /* ─────────────────────────────────────────
+           FOOTER
+        ───────────────────────────────────────── */
+        footer {
+            background: var(--oliva);
+            color: var(--crema);
+            padding: 2rem 3.5rem;
+        }
+
+        .footer-top {
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+            margin-bottom: 3rem;
+        }
+
+        .footer-social-link {
+            font-size: 0.85rem;
+            letter-spacing: 0.1em;
+            color: rgba(237,224,204,0.8);
+            transition: color 0.25s;
+        }
+
+        .footer-social-link:hover { color: var(--ocre); }
+
+        .footer-bottom {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .footer-bottom p {
+            font-size: 0.78rem;
+            letter-spacing: 0.08em;
+            color: rgba(237,224,204,0.35);
+        }
+
+        /* ── Hamburger (oculto en desktop) ── */
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            justify-content: center;
+            gap: 5px;
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 4px;
+        }
+        .hamburger span {
+            display: block;
+            width: 20px;
+            height: 1.5px;
+            background: var(--oliva);
+            transition: transform 0.3s, opacity 0.3s;
+        }
+        .hamburger.open span:nth-child(1) { transform: translateY(6.5px) rotate(45deg); }
+        .hamburger.open span:nth-child(2) { opacity: 0; }
+        .hamburger.open span:nth-child(3) { transform: translateY(-6.5px) rotate(-45deg); }
+
+        /* ── Menú mobile ── */
+        .mobile-menu {
+            display: none;
+            background: var(--oliva);
+            border-top: 1px solid rgba(237,224,204,0.1);
+        }
+        .mobile-menu.open { display: block; }
+        .mobile-menu ul {
+            list-style: none;
+            padding: 1.5rem 1.8rem;
+            display: flex;
+            flex-direction: column;
+            gap: 1.2rem;
+        }
+        .mobile-menu a {
+            font-family: 'DM Sans', sans-serif;
+            font-size: 0.65rem;
+            letter-spacing: 0.28em;
+            text-transform: uppercase;
+            color: var(--crema);
+            text-decoration: none;
+            opacity: 0.85;
+        }
+        .mobile-menu a:hover { opacity: 1; }
+
+        /* ══════════════════════════════════════
+           RESPONSIVE — móvil ≤ 768px
+        ══════════════════════════════════════ */
+        @media (max-width: 768px) {
+
+            /* ── Banner ── */
+            .top-banner {
+                font-size: 0.55rem;
+                padding: 0.45rem 1rem;
+                letter-spacing: 0.14em;
+            }
+            .banner-extra { display: none; }
+
+            /* ── Nav ── */
+            nav {
+                padding: 0.8rem 1.2rem;
+            }
+            .nav-links { display: none; }
+            .nav-logo { font-size: 1rem; letter-spacing: 0.45em; }
+            .hamburger { display: flex; }
+
+            /* ── Hero ── */
+            .hero { min-height: 80vh; }
+            .hero h1 { font-size: clamp(4rem, 22vw, 7rem); letter-spacing: 0.25em; }
+            .hero-sub { letter-spacing: 0.35em; }
+
+            /* ── Productos destacados ── */
+            .featured { padding: 3rem 1.2rem; }
+            .section-header { padding: 0; margin-bottom: 1.5rem; }
+            .carousel-arrows { display: none; }
+            .products-grid {
+                grid-template-columns: 1fr 1fr;
+                gap: 1rem;
+            }
+            .products-grid .product-card:nth-child(3) { display: none; }
+            .badge-preventa { width: 3rem; height: 2.4rem; font-size: 0.7rem; }
+            .view-all { margin-top: 2rem; }
+
+            /* ── Materia Prima ── */
+            .materia { height: auto; min-height: 420px; }
+            .materia-content {
+                padding: 3rem 1.8rem;
+                max-width: 100%;
+                align-items: center;
+                text-align: center;
+            }
+
+            /* ── Sobre Ocre / Historia ── */
+            .historia { height: auto; min-height: 420px; justify-content: center; }
+            .historia-content {
+                padding: 3rem 1.8rem;
+                max-width: 100%;
+                align-items: center;
+                text-align: center;
+            }
+            .historia-content .btn-outline-light { align-self: center; }
+
+            /* ── Instagram ── */
+            .instagram-header { padding: 2rem 1.2rem 1rem; }
+            .instagram-grid { grid-template-columns: repeat(3, 1fr); }
+            .instagram-grid a:nth-child(n+4) { display: none; }
+
+            /* ── Footer ── */
+            footer { padding: 1.2rem 1.5rem; }
+            .footer-bottom {
+                text-align: center;
+            }
+        }
+
+    </style>
+</head>
+<body>
+
+    <!-- ═══════════════════════════════════════
+         HEADER — banner + navegación
+    ═══════════════════════════════════════ -->
+    <header class="site-header">
+
+    <div class="top-banner">
+        Envíos a todo Uruguay
+        <span class="banner-extra"><span class="sep">·</span> Envíos gratuitos en compras superiores a $X UYU</span>
+    </div>
+
+    <nav>
+        <button class="hamburger" id="hamburger" aria-label="Abrir menú">
+            <span></span><span></span><span></span>
+        </button>
+
+        <ul class="nav-links">
+            <li><a href="shop.html">Shop</a></li>
+            <li><a href="#">FAQs</a></li>
+            <li><a href="#">Sobre Ocre</a></li>
+            <li><a href="#">Contacto</a></li>
+        </ul>
+
+        <a href="index.html" class="nav-logo">
+            <span class="logo-main">OCRE</span>
+            <span class="logo-sub">handmade</span>
+        </a>
+
+        <div class="nav-right">
+            <div class="nav-search">
+                <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <circle cx="11" cy="11" r="7"/>
+                    <line x1="16.5" y1="16.5" x2="22" y2="22"/>
+                </svg>
+            </div>
+            <div class="nav-cart">
+                <svg viewBox="0 0 24 24"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 01-8 0"/></svg>
+            </div>
+        </div>
+    </nav>
+
+    <div class="mobile-menu" id="mobile-menu">
+        <ul>
+            <li><a href="shop.html">Shop</a></li>
+            <li><a href="#">FAQs</a></li>
+            <li><a href="#">Sobre Ocre</a></li>
+            <li><a href="#">Contacto</a></li>
+        </ul>
+    </div>
+
+    </header>
+
+
+    <!-- ═══════════════════════════════════════
+         HERO
+    ═══════════════════════════════════════ -->
+    <section class="hero">
+        <img src="img/cuero-vaca-hero.jpg" alt="OCRE Handmade — accesorios en cuero" class="hero-img"/>
+        <div class="hero-overlay">
+            <div class="hero-text">
+                <h1>OCRE</h1>
+                <p class="hero-sub">Accesorios en cuero</p>
+                <a href="shop.html" class="btn-hero">Ver tienda</a>
+            </div>
+        </div>
+    </section>
+
+
+
+    <!-- ═══════════════════════════════════════
+         PRODUCTOS DESTACADOS
+    ═══════════════════════════════════════ -->
+    <section class="featured" id="shop">
+        <div class="section-header">
+            <div class="section-header-text">
+                <span class="section-tag">Selección</span>
+                <h2 class="section-title">Productos destacados</h2>
+            </div>
+            <div class="carousel-arrows">
+                <button class="arrow-btn" aria-label="Anterior">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                        <polyline points="15 18 9 12 15 6"/>
+                    </svg>
+                </button>
+                <button class="arrow-btn" aria-label="Siguiente">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                        <polyline points="9 18 15 12 9 6"/>
+                    </svg>
+                </button>
+            </div>
+        </div>
+
+        <div class="products-grid">
+            <div class="product-card">
+                <div class="product-img-wrap">
+                    <img src="img/bolso-piso.png" alt="Bolso Tote Tejido"/>
+                </div>
+                <div class="product-info">
+                    <h3 class="product-name">Bolso Tote Tejido</h3>
+                    <p class="product-price">$4.200 UYU</p>
+                    <a href="producto.html" class="product-cta">Ver producto</a>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <div class="product-img-wrap">
+                    <span class="badge-preventa">Preventa</span>
+                    <img src="img/cinturon-modelo.png" alt="Cinturón Silver"/>
+                </div>
+                <div class="product-info">
+                    <h3 class="product-name">Cinturón Silver</h3>
+                    <p class="product-price">$2.100 UYU</p>
+                    <a href="#" class="product-cta">Ver producto</a>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <div class="product-img-wrap">
+                    <img src="img/cinturones-flat.png" alt="Cinturones Artesanales"/>
+                </div>
+                <div class="product-info">
+                    <h3 class="product-name">Cinturones Artesanales</h3>
+                    <p class="product-price">$2.500 UYU</p>
+                    <a href="#" class="product-cta">Ver producto</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="view-all">
+            <a href="shop.html" class="btn-outline">Ver toda la tienda</a>
+        </div>
+    </section>
+
+
+    <!-- ═══════════════════════════════════════
+         CUERO NACIONAL / MATERIA PRIMA 🇺🇾
+    ═══════════════════════════════════════ -->
+    <section class="materia">
+        <div class="materia-bg">
+            <img src="img/cuero-gamuza.jpg" alt="Textura de cuero nacional uruguayo"/>
+        </div>
+        <div class="materia-overlay"></div>
+        <div class="materia-content">
+            <span class="section-tag">Materia prima</span>
+            <h2>Cuero nacional 🇺🇾</h2>
+            <p>
+                Trabajamos exclusivamente con cueros de origen uruguayo, seleccionados
+                por su calidad, textura y durabilidad. Cada cuero tiene su propia
+                historia antes de convertirse en una pieza Ocre.
+            </p>
+            <p>
+                El granado natural, el color y la flexibilidad del cuero nacional
+                son características únicas que no se pueden replicar. Creemos en
+                valorizar lo nuestro y en la trazabilidad de cada material que usamos.
+            </p>
+        </div>
+    </section>
+
+
+    <!-- ═══════════════════════════════════════
+         NUESTRA HISTORIA
+    ═══════════════════════════════════════ -->
+    <section class="historia" id="sobre-ocre">
+        <div class="historia-bg">
+            <img src="img/cueros-enrollados.jpg" alt="Cueros enrollados Ocre Handmade"/>
+        </div>
+        <div class="historia-overlay"></div>
+        <div class="historia-content">
+            <span class="section-tag">Sobre Ocre</span>
+            <p>
+                Cada pieza de Ocre nace de un proceso artesanal donde el cuero
+                es trabajado con cuidado y dedicación. Creemos en los materiales
+                que envejecen bien, en los objetos que cuentan una historia y en
+                lo hecho a mano como forma de resistencia.
+            </p>
+            <a href="#" class="btn-outline-light">Leer más</a>
+        </div>
+    </section>
+
+
+
+    <!-- ═══════════════════════════════════════
+         FOLLOW US @OCRE_HANDMADE
+    ═══════════════════════════════════════ -->
+    <div class="instagram-header">
+        <span>Follow us</span>
+        <a href="https://www.instagram.com/ocre_handmade/" target="_blank">@ocre_handmade</a>
+    </div>
+    <div class="instagram-grid">
+        <a href="https://www.instagram.com/ocre_handmade/" target="_blank">
+            <img src="img/bolso-piso.png" alt="Ocre Instagram"/>
+        </a>
+        <a href="https://www.instagram.com/ocre_handmade/" target="_blank">
+            <img src="img/cinturon-modelo.png" alt="Ocre Instagram"/>
+        </a>
+        <a href="https://www.instagram.com/ocre_handmade/" target="_blank">
+            <img src="img/cinturon-rojo.png" alt="Ocre Instagram"/>
+        </a>
+        <a href="https://www.instagram.com/ocre_handmade/" target="_blank">
+            <img src="img/bolso-sofa.png" alt="Ocre Instagram"/>
+        </a>
+        <a href="https://www.instagram.com/ocre_handmade/" target="_blank">
+            <img src="img/cinturones-flat.png" alt="Ocre Instagram"/>
+        </a>
+        <a href="https://www.instagram.com/ocre_handmade/" target="_blank">
+            <img src="img/cinturon-blanco.png" alt="Ocre Instagram"/>
+        </a>
+    </div>
+
+
+    <!-- ═══════════════════════════════════════
+         FOOTER
+    ═══════════════════════════════════════ -->
+    <footer>
+        <div class="footer-bottom">
+            <p>© 2025 Ocre Handmade. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+
+    <script>
+        var btn = document.getElementById('hamburger');
+        var menu = document.getElementById('mobile-menu');
+        btn.addEventListener('click', function () {
+            btn.classList.toggle('open');
+            menu.classList.toggle('open');
+        });
+    </script>
+
+</body>
+</html>
